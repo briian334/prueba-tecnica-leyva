@@ -10,3 +10,7 @@
 *.vue text eol=lf
 *.json text eol=lf
 *.sql text eol=lf
+
+# Maven Wrapper
+mvnw text eol=lf
+*.cmd text eol=crlf
