@@ -10,6 +10,9 @@
 *.vue text eol=lf
 *.json text eol=lf
 *.sql text eol=lf
+*.html text eol=lf
+
+.env.example text eol=lf
 
 # Maven Wrapper
 mvnw text eol=lf
