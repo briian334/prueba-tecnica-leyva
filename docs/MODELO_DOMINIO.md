@@ -165,6 +165,22 @@ Una importación inválida no crea póliza, por lo que no se necesita un estado 
 
 Debe confirmarse cómo se determina `Poliza.fecha`, especialmente si un archivo contiene operaciones con fechas distintas.
 
+Supuesto temporal pendiente de confirmación:
+
+- todos los `RegistroImportado` deben tener la misma fecha;
+- una importación con fechas distintas se rechaza sin persistir;
+- la fecha común se utiliza como `Poliza.fecha`.
+
+Este supuesto está aislado en la validación de fecha común del servicio de importación para facilitar su cambio cuando Leyva confirme la regla definitiva.
+
 ### PEND-02 — Concepto general de póliza
 
 Debe confirmarse cómo se obtiene `Poliza.concepto`, ya que el archivo sólo define concepto por operación.
+
+Supuesto temporal pendiente de confirmación:
+
+```text
+Importación de operaciones
+```
+
+El valor no se deriva de los conceptos individuales ni modifica el contrato REST. Se mantiene como una constante temporal identificada en el servicio de importación para facilitar su sustitución cuando Leyva confirme la regla definitiva.
