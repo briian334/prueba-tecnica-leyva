@@ -23,18 +23,18 @@ Secuencia:
 1. recibir archivo;
 2. validar existencia y formato soportado;
 3. seleccionar parser;
-4. validar estructura global;
-5. normalizar filas recuperables;
-6. acumular errores de parser;
-7. validar reglas de dominio;
-8. acumular errores de dominio;
-9. abortar sin persistir si existe cualquier error;
-10. construir póliza y movimientos en memoria;
-11. calcular y validar balance;
-12. iniciar transacción;
-13. persistir agregado;
-14. confirmar transacción;
-15. devolver resultado.
+4. leer y parsear el archivo fuera de una transacción;
+5. validar estructura global;
+6. normalizar filas recuperables;
+7. validar reglas por fila y acumular errores;
+8. invocar `ImportacionService.generarYPersistir()` e iniciar la transacción;
+9. abortar sin persistir si existen errores previos;
+10. validar que todas las operaciones compartan la misma fecha;
+11. construir la póliza y sus movimientos en memoria;
+12. calcular y validar el balance;
+13. persistir el agregado;
+14. confirmar la transacción;
+15. devolver el resultado.
 
 ## Parsers
 
@@ -168,18 +168,21 @@ Una diferencia indicaría una inconsistencia interna.
 
 ## Transacción
 
-La transacción comienza después del parseo y de todas las validaciones.
+La lectura y el parsing del archivo ocurren antes de abrir la transacción, por lo que el I/O del archivo no mantiene recursos transaccionales ocupados.
+
+La transacción comienza al invocar el método `ImportacionService.generarYPersistir()`. Dentro de ella se comprueban los errores acumulados, se valida la fecha común, se generan la póliza y sus movimientos, se valida el balance y se persiste el agregado.
 
 ```text
-parsear
-→ validar
-→ construir agregado
-→ validar balance
-→ @Transactional
-→ persistir
-```
+fuera de la transacción:
+leer archivo → parsear → normalizar y validar filas
 
-Así no se mantiene una transacción abierta durante I/O del archivo.
+dentro de ImportacionService.generarYPersistir() (@Transactional):
+comprobar errores previos
+→ validar fecha común
+→ construir póliza y movimientos
+→ validar balance
+→ persistir agregado
+```
 
 ## Error controlado
 

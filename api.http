@@ -1,0 +1,35 @@
+@baseUrl = http://localhost:8080
+@polizaId = 1
+
+### Listar pólizas
+GET {{baseUrl}}/api/polizas
+Accept: application/json
+
+### Obtener detalle de una póliza
+# Sustituir polizaId por un identificador existente.
+GET {{baseUrl}}/api/polizas/{{polizaId}}
+Accept: application/json
+
+### Importar TXT válido
+POST {{baseUrl}}/api/importaciones
+Content-Type: multipart/form-data; boundary=ImportacionBoundary
+Accept: application/json
+
+--ImportacionBoundary
+Content-Disposition: form-data; name="archivo"; filename="ejemplo_importacion_valido.txt"
+Content-Type: text/plain
+
+< ./samples/validos/ejemplo_importacion_valido.txt
+--ImportacionBoundary--
+
+### Importar XLSX válido
+POST {{baseUrl}}/api/importaciones
+Content-Type: multipart/form-data; boundary=ImportacionBoundary
+Accept: application/json
+
+--ImportacionBoundary
+Content-Disposition: form-data; name="archivo"; filename="ejemplo_importacion_valido.xlsx"
+Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet
+
+< ./samples/validos/ejemplo_importacion_valido.xlsx
+--ImportacionBoundary--
