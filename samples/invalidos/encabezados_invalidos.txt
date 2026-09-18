@@ -1,0 +1,3 @@
+FECHA|referencia|concepto|cuenta_carg0|cuenta_abono|importe|descuentos
+2026-08-15|VTA-1001|Venta mostrador|1100-Clientes|4100-Ventas|1250.50
+2026-08-15|COB-1002|Cobro transferencia|1010-Bancos|1100-Clientes|800.00

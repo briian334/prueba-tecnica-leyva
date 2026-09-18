@@ -1,0 +1,11 @@
+fecha|referencia|concepto|cuenta_cargo|cuenta_abono|importe
+2026-09-05|COM-2009|Compra de insumos|5100-Gastos de oficina|2010-Proveedores|134.13
+2026-09-05|COB-2010|Cobro por transferencia|1010-Bancos|1100-Clientes|449.97
+2026-09-05|VTC-2011|Venta con tarjeta|1105-Tarjetas por cobrar|4100-Ventas|3984.85
+2026-09-05|PAG-2012|Pago a proveedor|2010-Proveedores|1010-Bancos|1110.68
+2026-09-05|VTC-2013|Venta con tarjeta|1105-Tarjetas por cobrar|4100-Ventas|3487.87
+2026-09-05|VTA-2014|Venta de mostrador|1100-Clientes|4100-Ventas|870.23
+2026-09-05|VTC-2015|Venta con tarjeta|1105-Tarjetas por cobrar|4100-Ventas|3805.63
+2026-09-05|DEP-2016|Depósito bancario|1010-Bancos|1000-Caja|922.79
+2026-09-05|DEP-2017|Depósito bancario|1010-Bancos|1000-Caja|567.00
+2026-09-05|MAN-2018|Mantenimiento de equipo|5300-Mantenimiento|1010-Bancos|3110.24

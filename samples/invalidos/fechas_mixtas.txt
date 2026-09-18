@@ -1,0 +1,7 @@
+fecha|referencia|concepto|cuenta_cargo|cuenta_abono|importe
+2026-08-15|VTA-1001|Venta mostrador|1100-Clientes|4100-Ventas|1250.50
+2026-08-15|COB-1002|Cobro transferencia|1010-Bancos|1100-Clientes|800.00
+2026-08-15|VTA-1003|Venta con tarjeta|1105-Tarjetas por cobrar|4100-Ventas|2375.90
+2026-08-15|COM-1004|Compra de papelería|5100-Gastos de oficina|2010-Proveedores|460.25
+2026-08-15|PAG-1005|Pago a proveedor|2010-Proveedores|1010-Bancos|460.25
+2026-08-16|DEP-1006|Depósito en banco|1010-Bancos|1000-Caja|1500.00
