@@ -97,6 +97,23 @@ En Windows PowerShell:
 
 Las variables `DB_URL`, `DB_USERNAME` y `DB_PASSWORD` deben estar disponibles al iniciar Spring Boot. De forma predeterminada, la API queda disponible en `http://localhost:8080`.
 
+### Ejecución desde IntelliJ IDEA
+
+También puede ejecutarse el backend mediante una configuración de tipo `Application`:
+
+- JDK: Java 21.
+- Main class: `com.leyva.pruebatecnica.PruebaTecnicaApplication`.
+- Working directory: raíz del proyecto.
+- Variables de entorno: `DB_URL`, `DB_USERNAME` y `DB_PASSWORD`.
+
+En algunos entornos Windows con IntelliJ IDEA puede ser necesario definir explícitamente un directorio temporal accesible mediante la siguiente opción de la JVM:
+
+```text
+-Djava.io.tmpdir=C:\Users\<usuario>\AppData\Local\Temp
+```
+
+Esta opción sólo es necesaria si el entorno local presenta errores de acceso al directorio temporal; no es un requisito general de la aplicación.
+
 ## Ejecución del frontend
 
 Desde `frontend/`:
